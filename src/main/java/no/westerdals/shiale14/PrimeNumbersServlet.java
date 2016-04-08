@@ -15,6 +15,7 @@ import static org.apache.commons.math3.primes.Primes.isPrime;
  */
 public class PrimeNumbersServlet extends HttpServlet {
 
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
