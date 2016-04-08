@@ -31,7 +31,7 @@ public class PrimeNumbersServlet extends HttpServlet {
                     answer = number + " isn't prime";
                 }
             } else {
-                answer = "Prime number cannot be negative or equal 1";
+                answer = "Prime number cannot be negative, 0 or 1";
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
