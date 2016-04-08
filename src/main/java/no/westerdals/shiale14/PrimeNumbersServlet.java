@@ -31,7 +31,7 @@ public class PrimeNumbersServlet extends HttpServlet {
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
-            answer = numberAsString + "is invalid input. Please insert a positive integer.";
+            answer = numberAsString + " is invalid input. Please insert a positive integer.";
         }
 
         request.setAttribute("answer", answer);
