@@ -24,10 +24,14 @@ public class PrimeNumbersServlet extends HttpServlet {
         String answer;
         try{
             number = Integer.parseInt(numberAsString);
-            if(isPrime(number)){
-                answer = number + " is prime";
+            if (number > 1) {
+                if(isPrime(number)){
+                    answer = number + " is prime";
+                } else {
+                    answer = number + " isn't prime";
+                }
             } else {
-                answer = number + " isn't prime";
+                answer = "Prime number cannot be negative or equal 1";
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
