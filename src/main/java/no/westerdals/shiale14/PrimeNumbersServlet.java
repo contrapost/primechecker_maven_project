@@ -1,6 +1,5 @@
 package no.westerdals.shiale14;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +19,9 @@ public class PrimeNumbersServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         String numberAsString = request.getParameter("number");
-        int number;
         String answer;
+        int number;
+
         try{
             number = Integer.parseInt(numberAsString);
             if (number > 1) {
@@ -39,9 +39,8 @@ public class PrimeNumbersServlet extends HttpServlet {
         }
 
         request.setAttribute("answer", answer);
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         try {
-            view.forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }

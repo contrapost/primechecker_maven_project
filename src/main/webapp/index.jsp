@@ -1,11 +1,14 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<meta charset="utf-8"/>
-<title>Prime checker</title>
-<style>
-    #center {
-        text-align: center;
-    }
-</style>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Prime checker</title>
+    <style>
+        #center {
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
 <div id="center">
     <h2>Prime checker</h2>
@@ -19,7 +22,8 @@
     </div>
     <div>
         <% if (request.getAttribute("answer") != null) { %>
-        <p> <%=(String) request.getAttribute("answer") %> </p>
+        <p><%=(String) request.getAttribute("answer") %>
+        </p>
         <% } %>
     </div>
 </div>
