@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Prime checker</title>
@@ -22,8 +20,7 @@
     </div>
     <div>
         <% if (request.getAttribute("answer") != null) { %>
-        <p><%=(String) request.getAttribute("answer") %>
-        </p>
+        <p> <%=(String) request.getAttribute("answer") %> </p>
         <% } %>
     </div>
 </div>
