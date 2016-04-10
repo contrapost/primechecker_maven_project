@@ -21,7 +21,9 @@
         </form>
     </div>
     <div>
-        <c:out value="${answer}"></c:out>
+<%--suppress CheckTagEmptyBody --%>
+<%--suppress CheckTagEmptyBody --%>
+    <c:out value="${answer}"></c:out>
     </div>
 </div>
 </body>
