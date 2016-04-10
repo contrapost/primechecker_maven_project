@@ -1,5 +1,8 @@
 package no.westerdals.shiale14;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,11 +11,14 @@ import java.io.IOException;
 
 import static org.apache.commons.math3.primes.Primes.isPrime;
 
+
 /**
  *
  * Created by Alexander Shipunov on 07.04.2016.
  */
 public class PrimeNumbersServlet extends HttpServlet {
+
+    static Logger log = LogManager.getLogger();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
