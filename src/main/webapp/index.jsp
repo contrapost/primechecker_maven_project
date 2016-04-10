@@ -22,7 +22,6 @@
     </div>
     <div>
 <%--suppress CheckTagEmptyBody --%>
-<%--suppress CheckTagEmptyBody --%>
     <c:out value="${answer}"></c:out>
     </div>
 </div>
