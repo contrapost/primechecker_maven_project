@@ -26,12 +26,12 @@ public class PrimeNumbersServlet extends HttpServlet {
             number = Integer.parseInt(numberAsString);
             if (number > 1) {
                 if(isPrime(number)){
-                    answer = number + " is prime";
+                    answer = number + " is a prime number.";
                 } else {
-                    answer = number + " isn't prime";
+                    answer = number + " isn't a prime number.";
                 }
             } else {
-                answer = "Prime number cannot be negative, 0 or 1";
+                answer = "Prime number cannot be negative, 0 or 1.";
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
