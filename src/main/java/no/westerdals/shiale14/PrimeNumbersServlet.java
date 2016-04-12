@@ -18,7 +18,8 @@ import static org.apache.commons.math3.primes.Primes.isPrime;
  */
 public class PrimeNumbersServlet extends HttpServlet {
 
-    private final static Logger log = LogManager.getLogger();
+    private final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
+    private final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -30,7 +31,7 @@ public class PrimeNumbersServlet extends HttpServlet {
 
         try{
             number = Integer.parseInt(numberAsString);
-            log.info("Requested number: " + number);
+            REQUEST_LOG.info("Requested number: " + number);
             if (number > 1) {
                 if(isPrime(number)){
                     answer = number + " is a prime number.";
@@ -42,6 +43,7 @@ public class PrimeNumbersServlet extends HttpServlet {
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
+            ERROR_LOG.debug(nfe.getStackTrace().toString());
             answer = numberAsString + " is invalid input. Please insert a positive integer (max value is 2147483647).";
         }
 

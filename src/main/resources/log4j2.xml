@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Configuration status="DEBUG">
-
     <Properties>
-
         <Property name="log-path">C:\Users\Alexander\Documents\NITH\2016v\PG4100 - Java\Innlevering_3</Property>
-
     </Properties>
     <Appenders>
-
         <RollingFile name="RollingFile" fileName="${log-path}/requests.log"
-
                      filePattern="${log-path}/requests-%d{yyyy-MM-dd}-%i.log">
-
             <PatternLayout>
-
-                <pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS} %c{1}: %m%n</pattern>
-
+                <pattern>%d{dd/MMM/yyyy HH:mm:ss} %c{1}: %m%n</pattern>
             </PatternLayout>
-
             <Policies>
-
                 <SizeBasedTriggeringPolicy size="1 KB"/>
-
             </Policies>
-
             <DefaultRolloverStrategy max="4"/>
-
         </RollingFile>
-
+        <RollingFile name="RollingFile2" fileName="${log-path}/errors.log"
+                     filePattern="${log-path}/errors-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <pattern>%d{dd/MMM/yyyy HH:mm:ss} %c{1}: %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="4"/>
+        </RollingFile>
     </Appenders>
-
     <Loggers>
-
-        <Logger name="root" level="debug" additivity="false">
-
+        <Logger name="requestLog" level="debug" additivity="false">
             <appender-ref ref="RollingFile" level="debug"/>
-
         </Logger>
-
-        <Root level="debug" additivity="false">
-
-            <AppenderRef ref="RollingFile"/>
-        </Root>
+        <Logger name="errorLog" level="debug" additivity="false">
+            <appender-ref ref="RollingFile2" level="debug"/>
+        </Logger>
+        <!--<Root level="debug" additivity="false">-->
+            <!--<AppenderRef ref="RollingFile"/>-->
+        <!--</Root>-->
     </Loggers>
 </Configuration>
 
