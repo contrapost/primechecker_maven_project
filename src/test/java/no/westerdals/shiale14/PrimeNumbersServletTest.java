@@ -1,4 +1,4 @@
-package java.no.westerdals.shilae14;
+package no.westerdals.shiale14;
 
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
