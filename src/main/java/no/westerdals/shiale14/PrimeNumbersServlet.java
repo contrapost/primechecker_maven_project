@@ -43,7 +43,7 @@ public class PrimeNumbersServlet extends HttpServlet {
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
-            ERROR_LOG.debug(nfe.getStackTrace().toString());
+            ERROR_LOG.error("Wrong format of input: ", nfe);
             answer = numberAsString + " is invalid input. Please insert a positive integer (max value is 2147483647).";
         }
 
@@ -51,6 +51,7 @@ public class PrimeNumbersServlet extends HttpServlet {
         try {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
+            ERROR_LOG.error("Exception in servlet og IO functionality: ", e);
             e.printStackTrace();
         }
     }
