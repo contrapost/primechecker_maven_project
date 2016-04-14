@@ -17,7 +17,6 @@ import java.io.IOException;
 public class PrimeNumbersServlet extends HttpServlet {
 
     private ServletProcessor processor = new ServletProcessor();
-
     final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
 
     @Override

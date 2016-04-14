@@ -6,13 +6,14 @@ import org.apache.logging.log4j.Logger;
 import static org.apache.commons.math3.primes.Primes.isPrime;
 
 /**
+ *
  * Created by Alexander Shipunov on 14.04.2016.
  */
 public class ServletProcessor {
 
     private final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
-    public String provideAnswer(String input){
+    String provideAnswer(String input){
         String answer;
         int number;
         try{
