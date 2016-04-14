@@ -19,14 +19,14 @@ public class PrimeNumbersServletTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher view;
-    private PrimeNumbersServlet servlet;
+    private ServletProcessor processor;
 
     @Before
     public void setUp(){
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         view = mock(RequestDispatcher.class);
-        servlet = mock(PrimeNumbersServlet.class);
+        processor = mock(ServletProcessor.class);
     }
 
 
