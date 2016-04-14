@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static org.apache.commons.math3.primes.Primes.isPrime;
-
 
 /**
  *
@@ -18,34 +16,17 @@ import static org.apache.commons.math3.primes.Primes.isPrime;
  */
 public class PrimeNumbersServlet extends HttpServlet {
 
-    private final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
-    private final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
+    private ServletProcessor processor = new ServletProcessor();
+
+    final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
-        String numberAsString = request.getParameter("number");
-        String answer;
-        int number;
 
-        try{
-            number = Integer.parseInt(numberAsString);
-            REQUEST_LOG.info("Requested number: " + number);
-            if (number > 1) {
-                if(isPrime(number)){
-                    answer = number + " is a prime number.";
-                } else {
-                    answer = number + " isn't a prime number.";
-                }
-            } else {
-                answer = "Prime number cannot be negative, 0 or 1.";
-            }
-        } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
-            ERROR_LOG.error("Wrong format of input: ", nfe);
-            answer = numberAsString + " is invalid input. Please insert a positive integer (max value is 2147483647).";
-        }
+        String numberAsString = request.getParameter("number");
+        String answer = processor.provideAnswer(numberAsString);
 
         request.setAttribute("answer", answer);
         try {
