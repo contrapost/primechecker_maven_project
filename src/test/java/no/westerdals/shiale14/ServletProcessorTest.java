@@ -27,4 +27,29 @@ public class ServletProcessorTest {
         assertEquals(prime + positiveAnswer, processor.provideAnswer(prime));
         assertEquals(composite + negativeAnswer, processor.provideAnswer(composite));
     }
+
+    @Test
+    public void invalidIntegerInputGivesErrorMessage(){
+        String negative = "-9";
+        String zero = "0";
+        String one = "1";
+        String errorMessage = "Prime number cannot be negative, 0 or 1.";
+        assertEquals(errorMessage, processor.provideAnswer(negative));
+        assertEquals(errorMessage, processor.provideAnswer(zero));
+        assertEquals(errorMessage, processor.provideAnswer(one));
+    }
+
+    @Test
+    public void alphabeticInputGivesErrorMessage(){
+        String alphabeticInput = "number";
+        String errorMessage = " is invalid input. Please insert a positive integer (max value is 2147483647).";
+        assertEquals(alphabeticInput + errorMessage, processor.provideAnswer(alphabeticInput));
+    }
+
+    @Test
+    public void largeInputGivesErrorMessage(){
+        String notANumber = "2147483648";
+        String errorMessage = " is invalid input. Please insert a positive integer (max value is 2147483647).";
+        assertEquals(notANumber + errorMessage, processor.provideAnswer(notANumber));
+    }
 }
