@@ -9,12 +9,12 @@
     <display-name>Archetype Created Web Application</display-name>
     
     <servlet>
-        <servlet-name>PrimeNumberServlet</servlet-name>
-        <servlet-class>no.westerdals.shiale14.PrimeNumbersServlet</servlet-class>
+        <servlet-name>CheckerServlet</servlet-name>
+        <servlet-class>no.westerdals.shiale14.CheckerServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>PrimeNumberServlet</servlet-name>
+        <servlet-name>CheckerServlet</servlet-name>
         <url-pattern>/CheckPrime</url-pattern>
     </servlet-mapping>
 

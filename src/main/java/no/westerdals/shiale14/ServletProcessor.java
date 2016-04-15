@@ -30,7 +30,7 @@ public class ServletProcessor {
             }
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
-            PrimeNumbersServlet.ERROR_LOG.error("Wrong format of input: ", nfe);
+            CheckerServlet.ERROR_LOG.error("Wrong format of input: ", nfe);
             answer = input + " is invalid input. Please insert a positive integer (max value is 2147483647).";
         }
         return answer;

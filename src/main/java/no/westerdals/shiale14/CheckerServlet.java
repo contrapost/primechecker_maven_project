@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * Created by Alexander Shipunov on 07.04.2016.
  */
-public class PrimeNumbersServlet extends HttpServlet {
+public class CheckerServlet extends HttpServlet {
 
     private ServletProcessor processor = new ServletProcessor();
     final static Logger ERROR_LOG = LogManager.getLogger("errorLog");

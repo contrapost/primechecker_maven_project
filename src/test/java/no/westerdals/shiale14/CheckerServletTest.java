@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
  *
  * Created by Alexander Shipunov on 13.04.2016.
  */
-public class PrimeNumbersServletTest {
+public class CheckerServletTest {
 
     private HttpServletRequest request;
     private HttpServletResponse response;
