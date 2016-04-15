@@ -48,8 +48,11 @@ public class ServletProcessorTest {
 
     @Test
     public void largeInputGivesErrorMessage(){
-        String notANumber = "2147483648";
+        long one = 1;
+        long longNumber = Integer.MAX_VALUE + one;
+        // value of longNumber is 2147483648 (1 plus max value of integer)
+        String moreThanInteger = "" + longNumber;
         String errorMessage = " is invalid input. Please insert a positive integer (max value is 2147483647).";
-        assertEquals(notANumber + errorMessage, processor.provideAnswer(notANumber));
+        assertEquals(moreThanInteger + errorMessage, processor.provideAnswer(moreThanInteger));
     }
 }
