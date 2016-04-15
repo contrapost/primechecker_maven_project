@@ -9,13 +9,13 @@ import static org.junit.Assert.assertEquals;
  *
  * Created by Alexander Shipunov on 14.04.2016.
  */
-public class ServletProcessorTest {
+public class PrimeNumberProcessorTest {
 
-    private ServletProcessor processor;
+    private PrimeNumberProcessor processor;
 
     @Before
     public void setUp(){
-        processor = new ServletProcessor();
+        processor = new PrimeNumberProcessor();
     }
 
     @Test

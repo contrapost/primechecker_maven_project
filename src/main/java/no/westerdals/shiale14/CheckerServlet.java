@@ -16,8 +16,9 @@ import java.io.IOException;
  */
 public class CheckerServlet extends HttpServlet {
 
-    private ServletProcessor processor = new ServletProcessor();
+    private PrimeNumberProcessor processor = new PrimeNumberProcessor();
     final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
+    final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {

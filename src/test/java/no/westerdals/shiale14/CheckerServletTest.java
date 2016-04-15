@@ -19,14 +19,14 @@ public class CheckerServletTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher view;
-    private ServletProcessor processor;
+    private PrimeNumberProcessor processor;
 
     @Before
     public void setUp(){
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         view = mock(RequestDispatcher.class);
-        processor = mock(ServletProcessor.class);
+        processor = mock(PrimeNumberProcessor.class);
     }
 
 
