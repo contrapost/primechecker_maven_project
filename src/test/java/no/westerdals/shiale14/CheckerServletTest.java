@@ -4,11 +4,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static org.junit.Assert.assertTrue;
+import java.io.IOException;
+
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  *
@@ -29,10 +34,17 @@ public class CheckerServletTest {
         processor = mock(PrimeNumberProcessor.class);
     }
 
-
-
     @Test
-    public void testApp() {
-        assertTrue( true );
+    public void testApp() throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        when(request.getParameter("number")).thenReturn("3");
+        when(request.getRequestDispatcher(anyString())).thenReturn(view);
+        CheckerServlet servlet = new CheckerServlet();
+        servlet.setProcessor(processor);
+
+        servlet.doGet(request, response);
+
+        verify(processor).provideAnswer("3");
+        verify(view).forward(request, response);
     }
 }

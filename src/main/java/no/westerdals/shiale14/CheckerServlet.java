@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class CheckerServlet extends HttpServlet {
 
-    private PrimeNumberProcessor processor = new PrimeNumberProcessor();
+    private ServletProcessor processor = new PrimeNumberProcessor();
     final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
     final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
@@ -33,7 +33,10 @@ public class CheckerServlet extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             ERROR_LOG.error("Exception in servlet og IO functionality: ", e);
-            e.printStackTrace();
         }
+    }
+
+    public void setProcessor(ServletProcessor processor) {
+        this.processor = processor;
     }
 }

@@ -25,7 +25,6 @@ public class PrimeNumberProcessor implements ServletProcessor {
                 answer = "Prime number cannot be negative, 0 or 1.";
             }
         } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
             CheckerServlet.ERROR_LOG.error("Wrong format of input: ", nfe);
             answer = input + " is invalid input. Please insert a positive integer (max value is 2147483647).";
         }
