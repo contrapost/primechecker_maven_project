@@ -41,6 +41,6 @@ public class CheckerServlet extends HttpServlet {
     }
 
     void setErrorLogger(Logger errorLogger){
-        this.ERROR_LOG = errorLogger;
+        ERROR_LOG = errorLogger;
     }
 }
