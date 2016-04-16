@@ -17,8 +17,8 @@ import java.io.IOException;
 public class CheckerServlet extends HttpServlet {
 
     private ServletProcessor processor = new PrimeNumberProcessor();
-    final static Logger ERROR_LOG = LogManager.getLogger("errorLog");
-    final static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
+    static Logger ERROR_LOG = LogManager.getLogger("errorLog");
+    static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -32,11 +32,15 @@ public class CheckerServlet extends HttpServlet {
         try {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
-            ERROR_LOG.error("Exception in servlet og IO functionality: ", e);
+            ERROR_LOG.error("Exception in servlet or IO functionality: ", e);
         }
     }
 
-    public void setProcessor(ServletProcessor processor) {
+    void setProcessor(ServletProcessor processor) {
         this.processor = processor;
+    }
+
+    void setErrorLogger(Logger errorLogger){
+        this.ERROR_LOG = errorLogger;
     }
 }

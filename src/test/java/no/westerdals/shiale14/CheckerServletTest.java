@@ -1,5 +1,6 @@
 package no.westerdals.shiale14;
 
+import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,13 +8,10 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -35,7 +33,7 @@ public class CheckerServletTest {
     }
 
     @Test
-    public void testApp() throws ServletException, IOException {
+    public void servletUsesServletProcessor() throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         when(request.getParameter("number")).thenReturn("3");
         when(request.getRequestDispatcher(anyString())).thenReturn(view);
@@ -46,5 +44,22 @@ public class CheckerServletTest {
 
         verify(processor).provideAnswer("3");
         verify(view).forward(request, response);
+    }
+
+    @Test
+    public void exceptionsRegisteredInErrorLog() throws ServletException, IOException {
+        IOException e = mock(IOException.class);
+        Logger logger = mock(Logger.class);
+        response.setCharacterEncoding("UTF-8");
+        when(request.getParameter("number")).thenReturn("3");
+        when(request.getRequestDispatcher(anyString())).thenReturn(view);
+        doThrow(e).when(view).forward(request, response);
+        CheckerServlet servlet = new CheckerServlet();
+        servlet.setErrorLogger(logger);
+
+        servlet.doGet(request, response);
+
+        verify(CheckerServlet.ERROR_LOG).error("Exception in servlet or IO functionality: ",
+                e);
     }
 }
