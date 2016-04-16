@@ -16,10 +16,17 @@ import java.io.IOException;
  */
 public class CheckerServlet extends HttpServlet {
 
+    // PrimeNumberProcessor can be changed with another type of processor
+    // depending on user needs
     private ServletProcessor processor = new PrimeNumberProcessor();
     static Logger ERROR_LOG = LogManager.getLogger("errorLog");
     static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
+    /**
+     *
+     * @param request
+     * @param response
+     */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setCharacterEncoding("UTF-8");
@@ -36,10 +43,18 @@ public class CheckerServlet extends HttpServlet {
         }
     }
 
+    /**
+     *
+     * @param processor
+     */
     void setProcessor(ServletProcessor processor) {
         this.processor = processor;
     }
 
+    /**
+     *
+     * @param errorLogger
+     */
     void setErrorLogger(Logger errorLogger){
         ERROR_LOG = errorLogger;
     }

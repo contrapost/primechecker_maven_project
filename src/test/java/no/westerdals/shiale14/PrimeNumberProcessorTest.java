@@ -13,11 +13,17 @@ public class PrimeNumberProcessorTest {
 
     private PrimeNumberProcessor processor;
 
+    /**
+     *
+     */
     @Before
     public void setUp(){
         processor = new PrimeNumberProcessor();
     }
 
+    /**
+     *
+     */
     @Test
     public void validInputGivesIntendedResult(){
         String prime = "5";
@@ -28,6 +34,9 @@ public class PrimeNumberProcessorTest {
         assertEquals(composite + negativeAnswer, processor.provideAnswer(composite));
     }
 
+    /**
+     *
+     */
     @Test
     public void invalidIntegerInputGivesErrorMessage(){
         String negative = "-9";
@@ -39,6 +48,9 @@ public class PrimeNumberProcessorTest {
         assertEquals(errorMessage, processor.provideAnswer(one));
     }
 
+    /**
+     *
+     */
     @Test
     public void alphabeticInputGivesErrorMessage(){
         String alphabeticInput = "number";
@@ -46,6 +58,9 @@ public class PrimeNumberProcessorTest {
         assertEquals(alphabeticInput + errorMessage, processor.provideAnswer(alphabeticInput));
     }
 
+    /**
+     *
+     */
     @Test
     public void largeInputGivesErrorMessage(){
         long one = 1;

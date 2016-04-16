@@ -4,10 +4,17 @@ import static org.apache.commons.math3.primes.Primes.isPrime;
 
 /**
  *
+ * @see {@link }
+ *
  * Created by Alexander Shipunov on 14.04.2016.
  */
 public class PrimeNumberProcessor implements ServletProcessor {
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     @Override
     public String provideAnswer(String input){
         String answer;
@@ -30,5 +37,4 @@ public class PrimeNumberProcessor implements ServletProcessor {
         }
         return answer;
     }
-
 }

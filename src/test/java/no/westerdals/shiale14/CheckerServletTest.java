@@ -24,6 +24,9 @@ public class CheckerServletTest {
     private RequestDispatcher view;
     private PrimeNumberProcessor processor;
 
+    /**
+     *
+     */
     @Before
     public void setUp(){
         request = mock(HttpServletRequest.class);
@@ -32,6 +35,11 @@ public class CheckerServletTest {
         processor = mock(PrimeNumberProcessor.class);
     }
 
+    /**
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Test
     public void servletUsesServletProcessor() throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
@@ -46,6 +54,11 @@ public class CheckerServletTest {
         verify(view).forward(request, response);
     }
 
+    /**
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     @Test
     public void exceptionsRegisteredInErrorLog() throws ServletException, IOException {
         IOException e = mock(IOException.class);
