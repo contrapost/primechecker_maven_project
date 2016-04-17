@@ -11,21 +11,35 @@ import java.io.IOException;
 
 
 /**
- *
+ * <p>
+ * Universal servlet that receives user input and generate answer based on
+ * a particular implementation of ServletProcessor interface.
+ * </p>
+ * <p>
  * Created by Alexander Shipunov on 07.04.2016.
+ * </p>
+ * @see ServletProcessor ServletProcessor.
+ * @see PrimeNumberProcessor PrimeNumberProcessor.
  */
 public class CheckerServlet extends HttpServlet {
 
     // PrimeNumberProcessor can be changed with another type of processor
-    // depending on user needs
+    // depending on user needs.
     private ServletProcessor processor = new PrimeNumberProcessor();
     static Logger ERROR_LOG = LogManager.getLogger("errorLog");
     static Logger REQUEST_LOG = LogManager.getLogger("requestLog");
 
     /**
-     *
-     * @param request
-     * @param response
+     * <p>
+     * Receives user input, generate answer with the help of a particular
+     * implementation of a ServletProcessor and displays the answer using
+     * RequestDispatcher.
+     * </p>
+     * <p>
+     * IOExceptions and ServletExceptions are logged in the error log.
+     * </p>
+     * @param request   HttpServletRequest request.
+     * @param response  HttpServletResponse response.
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -44,16 +58,16 @@ public class CheckerServlet extends HttpServlet {
     }
 
     /**
-     *
-     * @param processor
+     * Setter that can be used to set other processor.
+     * @param processor object of implementation of ServletProcessor interface.
      */
     void setProcessor(ServletProcessor processor) {
         this.processor = processor;
     }
 
     /**
-     *
-     * @param errorLogger
+     * Setter that can be used to set error log.
+     * @param errorLogger object of Logger class.
      */
     void setErrorLogger(Logger errorLogger){
         ERROR_LOG = errorLogger;
