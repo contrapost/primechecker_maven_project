@@ -6,15 +6,18 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Test suit for PrimeNumberProcessor.
  *
  * Created by Alexander Shipunov on 14.04.2016.
+ *
+ * @see PrimeNumberProcessor PrimeNumberProcessor
  */
 public class PrimeNumberProcessorTest {
 
     private PrimeNumberProcessor processor;
 
     /**
-     *
+     * Initializes a processor before each test running.
      */
     @Before
     public void setUp(){
@@ -22,7 +25,8 @@ public class PrimeNumberProcessorTest {
     }
 
     /**
-     *
+     * Checks if the valid input returns correct answer, i.e. informs user
+     * if the number that was inserted is prime or not.
      */
     @Test
     public void validInputGivesIntendedResult(){
@@ -35,7 +39,7 @@ public class PrimeNumberProcessorTest {
     }
 
     /**
-     *
+     * Checks if input of negative number or 0 or 1 results in an error message.
      */
     @Test
     public void invalidIntegerInputGivesErrorMessage(){
@@ -49,7 +53,8 @@ public class PrimeNumberProcessorTest {
     }
 
     /**
-     *
+     * Checks if alphabetic input results in error message that explains
+     * what type of input is acceptable.
      */
     @Test
     public void alphabeticInputGivesErrorMessage(){
@@ -59,7 +64,8 @@ public class PrimeNumberProcessorTest {
     }
 
     /**
-     *
+     * Checks if large input results in error message that explains
+     * what type of input is acceptable.
      */
     @Test
     public void largeInputGivesErrorMessage(){

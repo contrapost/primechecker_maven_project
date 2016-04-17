@@ -14,8 +14,11 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 /**
+ * Test suit for CheckerServlet.
  *
  * Created by Alexander Shipunov on 13.04.2016.
+ *
+ * @see CheckerServlet CheckerServlet
  */
 public class CheckerServletTest {
 
@@ -25,7 +28,7 @@ public class CheckerServletTest {
     private PrimeNumberProcessor processor;
 
     /**
-     *
+     * Initializes necessary mock objects before each test running.
      */
     @Before
     public void setUp(){
@@ -36,9 +39,10 @@ public class CheckerServletTest {
     }
 
     /**
-     *
-     * @throws ServletException
-     * @throws IOException
+     * Checks if the servlet uses instance of servlet processor and forwards
+     * request and response using RequestDispatcher.
+     * @throws ServletException ServletException
+     * @throws IOException IOException
      */
     @Test
     public void servletUsesServletProcessor() throws ServletException, IOException {
@@ -55,9 +59,10 @@ public class CheckerServletTest {
     }
 
     /**
-     *
-     * @throws ServletException
-     * @throws IOException
+     * Checks if information about exception is logged in the error log
+     * when the exception is thrown.
+     * @throws ServletException ServletException
+     * @throws IOException IOException
      */
     @Test
     public void exceptionsRegisteredInErrorLog() throws ServletException, IOException {
