@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="DEBUG">
     <Properties>
-        <Property name="log-path">C:\Users\Alexander\Documents\NITH\2016v\PG4100 - Java\Innlevering_3\logs</Property>
+        <!--<Property name="log-path">C:\Users\Alexander\Documents\NITH\2016v\PG4100 - Java\Innlevering_3\logs</Property>-->
+        <Property name="log-path">C:\logs</Property>
     </Properties>
     <Appenders>
         <RollingFile name="RollingFile" fileName="${log-path}/requests.log"
